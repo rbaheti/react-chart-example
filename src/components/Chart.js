@@ -7,57 +7,8 @@ import sampleData from '../poverty_example.json';
 class Chart extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
-			options: {
-			  scales: {
-			    yAxes: [{
-			    	ticks: {
-              // Include a % sign in the ticks
-              callback: function(value, index, values) {
-                return value + '%';
-              }
-            },
-			      scaleLabel: {
-			      	labelString: 'Proportion Of Poverty',
-			        display: true,
-			        labelString: 'probability'
-			      }
-			    }]
-			  }     
-			},
 			dropdownTitle: 'Default',
-			chartData: {
-				labels: ['abc', 'def', 'ghi'],
-				datasets: [
-					{
-						label: 'Male',
-						data: [
-							200,
-							250,
-							300,
-						],
-						backgroundColor: [
-							'rgba(54, 162, 235, 0.6)',
-							'rgba(54, 162, 235, 0.6)',
-							'rgba(54, 162, 235, 0.6)',
-						]
-					},
-					{
-						label: 'Female',
-						data: [
-							250,
-							300,
-							400,
-						],
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.6)',
-							'rgba(255, 99, 132, 0.6)',
-							'rgba(255, 99, 132, 0.6)',
-						]
-					}
-				]
-			}
 		}
 	}
 
@@ -71,32 +22,32 @@ class Chart extends Component {
   	this.setState({dropdownTitle : title});
 	}
 
+	renderDropdownButton = (i) => {
+	  return (
+	    <DropdownButton
+	      bsStyle={this.state.dropdownTitle.toLowerCase()}
+	      title={this.state.dropdownTitle}
+	      key={i}
+	      id={`dropdown-basic-${i}`}
+	    >
+	      <MenuItem eventKey="1" onClick={() => {this.dropdownClick('Action');}}>Action</MenuItem>
+	      <MenuItem eventKey="2" onClick={() => {this.dropdownClick('Another action');}}>Another action</MenuItem>
+	    </DropdownButton>
+	  );
+	}
+
 	chartHeader = () => {
 		const headers = [];
 		headers.push(sampleData.headers[0]);
 		console.log("Hey: ",headers);
-		headers.push(sampleData[7]);
-		// headers.push(sampleData[4]);
+		headers.push(sampleData.headers[7]);
+		headers.push(sampleData.headers[4]);
 		return headers;
 	}
 
-	renderDropdownButton = (i) => {
-  return (
-    <DropdownButton
-      bsStyle={this.state.dropdownTitle.toLowerCase()}
-      title={this.state.dropdownTitle}
-      key={i}
-      id={`dropdown-basic-${i}`}
-    >
-      <MenuItem eventKey="1" onClick={() => {this.dropdownClick('Action');}}>Action</MenuItem>
-      <MenuItem eventKey="2" onClick={() => {this.dropdownClick('Another action');}}>Another action</MenuItem>
-    </DropdownButton>
-  );
-}
-
 	render () {
 		console.log("Data: ", sampleData);
-		console.log("Hey: ", sampleData.headers[0]);
+		console.log("Hey: ",this.chartHeader);
 		return (
 			<Grid>
 				<Row>
@@ -111,7 +62,36 @@ class Chart extends Component {
 	  			<Col md={8}>
 	  				<div className="chart">
 							<Bar
-								data={this.state.chartData}
+								data = {{
+										datasets: [
+											{
+												label: 'Male',
+												data: [
+													200,
+													250,
+													300,
+												],
+												backgroundColor: [
+													'rgba(54, 162, 235, 0.6)',
+													'rgba(54, 162, 235, 0.6)',
+													'rgba(54, 162, 235, 0.6)',
+												]
+											},
+											{
+												label: 'Female',
+												data: [
+													250,
+													300,
+													400,
+												],
+												backgroundColor: [
+													'rgba(255, 99, 132, 0.6)',
+													'rgba(255, 99, 132, 0.6)',
+													'rgba(255, 99, 132, 0.6)',
+												]
+											}
+										]
+									}} 
 								options={{
 									title: {
 										display: this.props.displayTitle,
@@ -121,7 +101,22 @@ class Chart extends Component {
 									legend: {
 										dislay:this.props.displayLegend,
 										position: this.props.legendPosition
-									}
+									},
+									scales: {
+								    yAxes: [{
+								    	ticks: {
+					              // Include a % sign in the ticks
+					              callback: function(value, index, values) {
+					                return value + '%';
+					              }
+					            },
+								      scaleLabel: {
+								      	labelString: 'Proportion Of Poverty',
+								        display: true,
+								        labelString: 'probability'
+								      }
+								    }]
+								  }  
 								}}
 							/>
 						</div>
