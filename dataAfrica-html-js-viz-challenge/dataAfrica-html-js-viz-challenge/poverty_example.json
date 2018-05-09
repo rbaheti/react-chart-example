@@ -1,0 +1,6 @@
+{"data": [[0.113632, 2012, "Nigeria", "040PGNGA", 0.489849, "ppp1", "female", 0.201969], [0.226344, 2012, "Nigeria", "040PGNGA", 0.726421, "ppp2", "female", 0.365874], [0.149496, 2012, "Nigeria", "040PGNGA", 0.553575, "ppp1", "male", 0.258475], [0.273851, 2012, "Nigeria", "040PGNGA", 0.761284, "ppp2", "male", 0.417189]], "headers": ["sevpov", "year", "poverty_geo_name", "poverty_geo", "hc", "poverty_level", "gender", "povgap"],
+                 "source": [{"dataset": "Poverty Survey", "org": "IFPRI", "table": "poverty.survey_yggl", "link": "http://www.harvestchoice.org/", "supported_levels": {"year": ["all", "latest_by_geo"], "poverty_geo": ["all", "adm0", "adm1"], "geo": ["all", "adm0", "adm1"], "gender": ["all", "male", "female"], "poverty_level": ["all", "ppp1", "ppp2"]}}],
+                 "subs": {},
+                 "limit": 10000,
+                 "warnings": []
+        }

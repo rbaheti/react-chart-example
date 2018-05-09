@@ -1,0 +1,11 @@
+.container {
+	margin: 40px;
+	max-width: 1000px;
+}
+
+.chart-left-dropdown {
+	padding-bottom: 10px;
+}
+.chart-left-text {
+	text-align: justify;
+}
