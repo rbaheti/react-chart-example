@@ -3,9 +3,50 @@
 	max-width: 1000px;
 }
 
-.chart-left-dropdown {
-	padding-bottom: 10px;
+.chart-left {
+	padding: 0px 20px 0px 20px;
 }
+
+.chart-left-wage {
+	padding-bottom: 5px;
+	text-align: left;
+	color: rgb(160, 213, 176);
+	font-size: 10px;
+}
+
+.chart-left-dropdown {
+	font-size: 10px;
+}
+
 .chart-left-text {
+	padding-top: 10px;
 	text-align: justify;
+}
+
+.chart {
+	height: 400px;
+}
+
+.chart-header-container {
+  display: flex;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+
+.chart-header {
+	font-size: 20px;
+	text-align: left; 
+}
+
+#chart-header-button {
+	border-radius: 15px;
+	padding: 5px 20px 8px 20px;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+canvas {
+	letter-spacing: 0.75px;
 }
