@@ -9,7 +9,7 @@ class Chart extends Component {
 		super(props);
 		this.state = {
 			chartHeader: 'Poverty Measures By Gender',
-			chartLeftText: 'A little bit of text about this chart.What does it all mean? Insights highlighted here.',
+			chartLeftText: 'A little bit of text about this chart. What does it all mean? Insights highlighted here.',
 			axesLabels: this.constructAxesLabels(),
 			categoryLabels: this.constructCategoryLabels(),
 			barLabels: this.constructBarLabels(),
@@ -17,7 +17,6 @@ class Chart extends Component {
 			dropdownTitles: this.constructDropdownTitles(),
 			dropdownIndex: 0,
 		}
-		console.log(this.state.chartData);
 	}
 
 	constructAxesLabels = () => {
@@ -137,12 +136,12 @@ class Chart extends Component {
 										datasets: [
 											{
 												label: this.state.barLabels[0],
-												data: this.getChartData(0),
+												data: this.getChartData(0 /* MALE */),
 												backgroundColor: Array(this.getChartData(0).length).fill('rgba(201, 219, 119)')
 											},
 											{
 												label: this.state.barLabels[1],
-												data: this.getChartData(1),
+												data: this.getChartData(1 /* FEMALE */),
 												backgroundColor: Array(this.getChartData(1).length).fill('rgba(169, 180, 223)')
 											}
 										]
